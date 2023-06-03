@@ -1,0 +1,3 @@
+[submodule "RTNMonero"]
+	path = RTNMonero
+	url = git@github.com:nonlin-lin-chaos-order-etc-etal/RTNMonero.git

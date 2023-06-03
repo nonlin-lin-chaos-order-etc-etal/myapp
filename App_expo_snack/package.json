@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "rtn-monero": "file:../RTNMonero"
+  }
+}

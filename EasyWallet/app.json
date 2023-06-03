@@ -30,5 +30,7 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "Example usage"
-  }
+  },
+  "name": "EasyWallet",
+  "displayName": "Easy Wallet"
 }
