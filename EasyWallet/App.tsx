@@ -1,69 +1,35 @@
-// https://github.com/easy-wallet/easy-wallet
-
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
 import React from 'react';
-import {View, Text, Button, Alert, StyleSheet} from 'react-native';
+import {useState} from 'react';
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  Button,
+} from 'react-native';
+import NativeMonero from 'rtn-monero/js/NativeMonero';
 
-const onPressCreateWallet  = () => {
-  Alert.alert("todo onPressCreateWallet"); //TODO
-}
-const onPressImportWallet  = () => {
-  Alert.alert("todo onPressImportWallet"); //TODO
-}
-const YourApp = () => {
+const App: () => JSX.Element = () => {
+  const [result, setResult] = useState<number | null>(null);
   return (
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-        }}>
-        <Text style={styles.titleText}>Easy Wallet</Text>
-      </View>
-      <View
-        style={{
-          flex: 0.33,
-          justifyContent: 'center',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <Text style={styles.baseText}>An open source multiplatform crypto wallet.</Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-        }}>
-        <Button
-          onPress={onPressCreateWallet}
-          title="Create Wallet"
-          accessibilityLabel="Press this button to create a new wallet."
-        />
-        <View style={{padding:5}}></View>
-        <Button
-          onPress={onPressImportWallet}
-          title="Import Wallet"
-          accessibilityLabel="Press this button to import an existing wallet &mdash; an Easy Wallet's one or an external one."
-        />
-      </View>
-    </View>
+    <SafeAreaView>
+      <StatusBar barStyle={'dark-content'} />
+      <Text style={{marginLeft: 20, marginTop: 20}}>
+        Answer={result ?? '??'}
+      </Text>
+      <Button
+        title=".answerTheUltimateQuestion"
+        onPress={async () => {
+          const value = await NativeMonero?.answerTheUltimateQuestion("gjh");
+          setResult(value ?? null);
+        }}
+      />
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  baseText: {
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
-
-export default YourApp;
+export default App;

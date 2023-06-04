@@ -3,6 +3,19 @@ apply plugin: "com.facebook.react"
 
 import com.android.build.OutputFile
 
+repositories {
+  google()
+  mavenCentral()
+}
+
+/*dependencies {
+  debugImplementation 'com.facebook.flipper:flipper:0.192.0'
+  debugImplementation 'com.facebook.soloader:soloader:0.10.5'
+
+  releaseImplementation 'com.facebook.flipper:flipper-noop:0.192.0'
+}
+*/
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
